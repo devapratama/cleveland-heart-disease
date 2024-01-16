@@ -134,7 +134,7 @@ if st.button('Predict Heart Disease'):
         4: 'purple'  # Stage 4 Heart Disease - Purple
     }
 
-    prediction_text = f'Prediction: <span style="color:{prediction_color[prediction[0]]}; font-size:24px;">{prediction_map[prediction[0]]}</span>'
+    prediction_text = f'<span style="font-size:24px;">Prediction: <span style="color:{prediction_color[prediction[0]]};">{prediction_map[prediction[0]]}</span></span>'
 
     # Display the prediction with the specified color and larger font size
     st.markdown(prediction_text, unsafe_allow_html=True)
