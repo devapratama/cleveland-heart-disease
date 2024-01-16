@@ -122,7 +122,17 @@ if st.button('Predict Heart Disease'):
                       2: 'Greater than 50% Diameter Narrowing - Stage 2', 
                       3: 'Greater than 50% Diameter Narrowing - Stage 3', 
                       4: 'Greater than 50% Diameter Narrowing - Stage 4'}
-    st.success(f'Prediction: {prediction_map[prediction[0]]}')
+
+    # Set the color based on prediction
+    prediction_color = {
+        0: 'green',  # No Heart Disease - Green
+        1: 'yellow',  # Stage 1 Heart Disease - Yellow
+        2: 'orange',  # Stage 2 Heart Disease - Orange
+        3: 'red',  # Stage 3 Heart Disease - Red
+        4: 'purple'  # Stage 4 Heart Disease - Purple
+    }
+
+    prediction_text = f'Prediction: {prediction_map[prediction[0]]}'
 
 # Prediction Details
 st.markdown("### Prediction Details")
