@@ -134,6 +134,17 @@ if st.button('Predict Heart Disease'):
 
     prediction_text = f'Prediction: {prediction_map[prediction[0]]}'
 
+    # Apply CSS to change text color
+    st.markdown(f"""<style>
+        .prediction-text {{
+            color: {prediction_color[prediction[0]]};
+        }}
+    </style>""", unsafe_allow_html=True)
+
+    # Display the prediction with the specified color
+    st.markdown(f'<p class="prediction-text">{prediction_text}</p>', unsafe_allow_html=True)
+
+
 # Prediction Details
 st.markdown("### Prediction Details")
 st.write("The prediction provided by this tool is based on a Random Forest model. A Random Forest is a machine learning algorithm that combines the input data to estimate the probability of heart disease.")
