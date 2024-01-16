@@ -6,14 +6,17 @@ from sklearn.preprocessing import StandardScaler
 # Load your trained Random Forest model
 model = pickle.load(open('rf.pkl', 'rb'))
 
+# Load StandardScaler from pickle file
+with open('scaler.pkl', 'rb') as scaler_file:
+    scaler = pickle.load(scaler_file)
+
 # Define a function to preprocess user input
 def preprocess_input(input_data):
     # Convert input data to numpy array
     input_data_as_numpy_array = np.asarray(input_data).reshape(1, -1)
     
-    # Standardize the input data
-    scaler = StandardScaler()
-    standardized_data = scaler.fit_transform(input_data_as_numpy_array)
+    # Standardize the input data using the loaded scaler
+    standardized_data = scaler.transform(input_data_as_numpy_array)
 
     return standardized_data
 
